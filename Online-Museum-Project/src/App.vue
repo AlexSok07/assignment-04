@@ -2,6 +2,7 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
+import RealInstruments from './assets/RealInstruments.png'
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import Footer from './components/Footer.vue'
 
     <main class="content">
     <h2>Main content</h2>
+    <img :src="RealInstruments" alt="logo">
     </main>
 
     <Footer />
@@ -26,6 +28,6 @@ import Footer from './components/Footer.vue'
 
 .content {
   flex: 1; 
-  display: flex;  
+  display: raw;  
 }
 </style>
