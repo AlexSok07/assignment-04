@@ -5,7 +5,7 @@
 
         <!-- Logo -->
         <div class="logo">
-          <a href="index.html">Alex Morgan</a>
+          <a href="index.html">Torture</a>
         </div>
 
         <!-- Hamburger -->
