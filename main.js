@@ -68,7 +68,7 @@ document.addEventListener('click', function(e) {
         link.href.startsWith(window.location.origin) &&
         !link.hasAttribute('download') &&
         !link.getAttribute('target') &&
-        !link.closest('#search-results') // 👈 ADD THIS
+        !link.closest('#search-results')
     ) {
         e.preventDefault();
         document.body.style.opacity = '0';
