@@ -19,6 +19,10 @@ body {
   color: var(--text);
 }
 
+.textured-page {
+  background: url("images/texture.jpg") center / cover no-repeat fixed;
+}
+
 .container {
   width: min(1100px, calc(100% - 2rem));
   margin: 0 auto;
