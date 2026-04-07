@@ -18,6 +18,8 @@ body {
   background: url("paper.png") center / cover no-repeat fixed;
   background-color: var(--background);
   color: var(--text);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 .texture-homepage {
@@ -378,5 +380,12 @@ body {
 
   .hero {
     padding: 2rem 0;
+    
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }
