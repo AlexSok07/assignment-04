@@ -8,7 +8,7 @@ import Home from './components/Home.vue'
   <div class="page">
     <Navbar />
 
-    <Home />
+    <RouterView />
 
     <Footer />
   </div>

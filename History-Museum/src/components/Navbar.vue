@@ -1,46 +1,61 @@
-<!-- src/views/Home.vue -->
 <template>
+  <header class="site-header">
+    <div class="container header-inner">
+      <RouterLink to="/" class="brand">History Hub</RouterLink>
 
-  <!-- Purpose Section -->
-  <section class="purpose" id="purpose">
-    <div class="container">
-      <div class="purpose-intro">
-        <h2>Our Purpose</h2>
-        <p>
-          History Hub helps learners, teachers, and curious readers discover
-          the eras, people, and turning points that define our shared past.
-        </p>
+      <!-- 搜索框：原先由 main.js 动态插入，现在直接写在模板里 -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search pages..."
+          v-model="searchQuery"
+        />
+        <!-- v-if 代替 :empty CSS；v-for 代替 forEach + createElement -->
+        <div id="search-results" v-if="searchResults.length > 0">
+          <RouterLink
+            v-for="page in searchResults"
+            :key="page.name"
+            :to="page.route"
+          >
+            {{ page.name }}
+          </RouterLink>
+        </div>
+        <div id="search-results" v-else-if="searchQuery.length > 0">
+          <div>No matches found</div>
+        </div>
       </div>
 
-      <div class="link-grid">
-        <a class="link-card" href="ancient.html">
-          <h3>Ancient Civilizations</h3>
-          <p>Explore the foundations of early empires, myths, and innovations.</p>
-        </a>
-
-        <a class="link-card" href="renaissance.html">
-          <h3>Renaissance & Early Modern</h3>
-          <p>Discover cultural renewal, scientific breakthroughs, and global change.</p>
-        </a>
-
-        <a class="link-card" href="industrial.html">
-          <h3>Industrial Revolution</h3>
-          <p>Learn how technology and industry reshaped society and everyday life.</p>
-        </a>
-
-        <a class="link-card" href="world-wars.html">
-          <h3>World Wars</h3>
-          <p>Understand the conflicts that defined the twentieth century.</p>
-        </a>
-      </div>
+      <nav class="main-nav">
+        <RouterLink to="/about">About Us</RouterLink>
+        <RouterLink to="/login">Log In</RouterLink>
+        <RouterLink to="/review">Review</RouterLink>
+      </nav>
     </div>
-  </section>
+  </header>
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
 
+// 原 main.js 的 pages 数组
+const pages = [
+  { name: 'Home',                    route: '/' },
+  { name: 'About Us',               route: '/about' },
+  { name: 'Log In',                 route: '/login' },
+  { name: 'Review',                 route: '/review' },
+  { name: 'Ancient Civilizations',  route: '/ancient' },
+  { name: 'Renaissance & Early Modern', route: '/renaissance' },
+  { name: 'Industrial Revolution',  route: '/industrial' },
+  { name: 'World Wars',             route: '/world-wars' },
+]
+
+const searchQuery = ref('')
+
+const searchResults = computed(() => {
+  if (!searchQuery.value.trim()) return []
+  return pages.filter(p =>
+    p.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+  )
+})
 </script>
-
-<style scoped>
-
-</style>
