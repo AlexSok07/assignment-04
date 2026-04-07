@@ -4,7 +4,7 @@
       <RouterLink to="/" class="brand">History Hub</RouterLink>
 
       <!-- 搜索框：原先由 main.js 动态插入，现在直接写在模板里 -->
-      <div class="search-container">
+      <div class="search-container" ref="searchContainer">
         <input
           type="text"
           id="search-input"
@@ -36,9 +36,8 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-// 原 main.js 的 pages 数组
 const pages = [
   { name: 'Home',                    route: '/' },
   { name: 'About Us',               route: '/about' },
@@ -58,4 +57,17 @@ const searchResults = computed(() => {
     p.name.toLowerCase().includes(searchQuery.value.toLowerCase())
   )
 })
+
+const searchContainer = ref(null)
+
+// CClear the search query when clicking outside the search container
+function handleOutsideClick(e) {
+  if (searchContainer.value && !searchContainer.value.contains(e.target)) {
+    searchQuery.value = ''
+  }
+}
+
+// Avoid memory leaks by adding/removing event listener on component mount/unmount
+onMounted(() => document.addEventListener('click', handleOutsideClick))
+onUnmounted(() => document.removeEventListener('click', handleOutsideClick))
 </script>
