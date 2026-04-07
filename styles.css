@@ -21,7 +21,7 @@ body {
 }
 
 .texture-homepage {
-  background: url("image/atlas.jpg") center / cover no-repeat fixed;
+  background: url("atlas.jpg") center / cover no-repeat fixed;
 }
 
 .container {
@@ -262,7 +262,7 @@ body {
   padding: 3rem;
   margin: 3rem auto;
   max-width: 1000px;
-  background: url("image/paper.png") center / cover no-repeat, var(--surface);
+  background: url("paper.png") center / cover no-repeat, var(--surface);
   border: 1px solid var(--border);
   border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
