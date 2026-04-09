@@ -19,6 +19,14 @@
             v-model="email"
           />
 
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            v-model="password"
+          />
+
           <button type="submit" class="button">Create Account</button>
         </form>
       </section>
