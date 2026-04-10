@@ -1,6 +1,12 @@
 # History-Museum
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a history website for you to learn the major historical changes in 21 century
+
+Designed by:
+Hao Ding (Programmer,backend database set up, login&review function designer)
+Anton(Programmer)
+Alex(Visual designer)
+Hamza()
 
 ## Recommended IDE Setup
 
