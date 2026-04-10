@@ -20,6 +20,15 @@ function getDB() {
         created_at    TEXT    DEFAULT (datetime('now'))
       )
     `)
+    _db.exec(`
+      CREATE TABLE IF NOT EXISTS feedback (
+        id         INTEGER PRIMARY KEY AUTOINCREMENT,
+        name       TEXT NOT NULL,
+        email      TEXT NOT NULL,
+        issue      TEXT NOT NULL,
+        created_at TEXT DEFAULT (datetime('now'))
+      )
+    `)
   }
   return _db
 }
@@ -59,6 +68,17 @@ app.post('/api/login', (req, res) => {
     return res.status(401).json({ error: 'Invalid email or password.' })
 
   res.json({ message: `Welcome back, ${email}!` })
+})
+
+// Submit feedback
+app.post('/api/feedback', (req, res) => {
+  const { name, email, issue } = req.body
+  if (!name || !email || !issue)
+    return res.status(400).json({ error: 'All fields are required.' })
+
+  const db = getDB()
+  db.prepare('INSERT INTO feedback (name, email, issue) VALUES (?, ?, ?)').run(name, email, issue)
+  res.status(201).json({ message: `Thank you, ${name}! Your feedback has been received.` })
 })
 
 app.listen(3000, () => console.log('API server → http://localhost:3000'))
