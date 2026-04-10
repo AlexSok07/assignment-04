@@ -43,6 +43,16 @@
           <h3>World Wars</h3>
           <p>Understand the conflicts that defined the twentieth century.</p>
         </RouterLink>
+
+        <RouterLink class="link-card" to="/world-wars">
+          <h3>Modern History</h3>
+          <p>Explore the events and developments that have shaped the contemporary world.</p>
+        </RouterLink>
+    
+        <RouterLink class="link-card" to="/world-wars">
+          <h3>Concurrent Events</h3>
+          <p>Educate on recent events and their historical context.</p>
+        </RouterLink>
       </div>
     </div>
   </section>
