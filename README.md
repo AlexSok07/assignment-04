@@ -4,9 +4,9 @@ This is a history website for you to learn important factoids about events or th
 
   - Designed by:
    - Hao Ding (Programmer, backend database set up, login & review function designer.)
-   - Anton(Programmer, created inital design, search bar creator)
+   - Anton (Programmer, created inital design, search bar creator) 101342716
    - Alex Sok (Visual Designer, animations, contents, and styling.) 101388692
-   - Hamza(Visual Designer, contents and styling. Created design document & slides)
+   - Hamza(Visual Designer, contents and styling. Created design document & slides) 101377142
 
 ## AI-Usage
 
