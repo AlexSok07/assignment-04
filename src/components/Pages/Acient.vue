@@ -9,7 +9,7 @@
         <section class="page-section">
           <h2>Key Civilizations</h2>
           <figure class="article-image">
-            <img src="ancientfigures.jpg" alt="Ancient civilizations artifacts displayed" />
+            <img :src="ancientImage" alt="Ancient civilizations artifacts displayed" />
             <figcaption>Artifacts from ancient civilizations.</figcaption>
           </figure>
           <ul>
@@ -33,6 +33,7 @@
 </template>
 
 <script setup>
+import ancientImage from '../../assets/ancientfigures.jpg'
 </script>
 
 <style scoped>

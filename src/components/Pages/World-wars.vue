@@ -11,7 +11,7 @@
         <section class="page-section">
           <h2>Major Conflicts</h2>
           <figure class="article-image">
-            <img src="worldwar.jpg" alt="20th century warfare imagery">
+            <img :src="worldwarImage" alt="20th century warfare imagery">
             <figcaption>Major battles and global conflict in the twentieth century.</figcaption>
           </figure>
           <ul>
@@ -34,6 +34,7 @@
 </template>
 
 <script setup>
+import worldwarImage from '../../assets/worldwar.jpg'
 </script>
 
 <style scoped>

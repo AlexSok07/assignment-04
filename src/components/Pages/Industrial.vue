@@ -9,7 +9,7 @@
         <section class="page-section">
           <h2>Innovation & Industry</h2>
           <figure class="article-image">
-            <img src="factory.jpg" alt="Early industrial machinery">
+            <img :src="industrialImage" alt="Early industrial machinery">
             <figcaption>Machines and factories of the Industrial Revolution.</figcaption>
           </figure>
           <ul>
@@ -31,6 +31,7 @@
 </template>
 
 <script setup>
+import industrialImage from '../../assets/factory.jpg'
 </script>
 
 <style scoped>

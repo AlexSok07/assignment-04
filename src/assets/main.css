@@ -15,15 +15,30 @@
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: url("paper.png") center / cover no-repeat fixed;
   background-color: var(--background);
   color: var(--text);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-.texture-homepage {
-  background: url("atlas.jpg") center / cover no-repeat fixed;
+.page {
+  position: relative;
+  isolation: isolate;
+}
+
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("paper.png") center / cover no-repeat;
+}
+
+.page.texture-homepage::before {
+  background:
+    linear-gradient(120deg, rgba(34, 28, 23, 0.28), rgba(236, 225, 172, 0.18)),
+    url("atlas.jpg") center / cover no-repeat;
+  animation: backgroundFloat 12s ease-in-out infinite alternate;
 }
 
 .container {
@@ -123,6 +138,44 @@ body {
 
 .main-nav a:hover {
   color: var(--primary);
+}
+
+.account-status {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(34, 28, 23, 0.78);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+}
+
+.account-status::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 0.18rem rgba(236, 225, 172, 0.18);
+}
+
+.account-status.not-logged-in {
+  color: #f1d48e;
+}
+
+.account-status.logged-in {
+  color: #b7f0c1;
+}
+
+.account-status:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
 }
 
 .hero {
@@ -403,10 +456,6 @@ body {
 }
 
 @media (max-width: 640px) {
-  body {
-    background-attachment: scroll;
-  }
-
   .container {
     width: calc(100% - 1.5rem);
   }
@@ -430,6 +479,11 @@ body {
   .main-nav a {
     display: block;
     padding: 0.65rem 0;
+  }
+
+  .account-status {
+    margin-left: 0;
+    align-self: flex-end;
   }
 
   .hero {
@@ -478,7 +532,21 @@ body {
 }
 
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
   to {
     opacity: 1;
+  }
+}
+
+@keyframes backgroundFloat {
+  from {
+    transform: scale(1) translateY(0);
+  }
+
+  to {
+    transform: scale(1.04) translateY(-1%);
   }
 }

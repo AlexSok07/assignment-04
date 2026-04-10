@@ -9,7 +9,7 @@
         <section class="page-section">
           <h2>Cultural Renewal</h2>
           <figure class="article-image">
-            <img src="renaissance.jpg" alt="Painting of the Renaissance period.">
+            <img :src="renaissanceImage" alt="Painting of the Renaissance period.">
             <figcaption>Renaissance art, science, and exploration.</figcaption>
           </figure>
           <ul>
@@ -31,6 +31,7 @@
 </template>
 
 <script setup>
+import renaissanceImage from '../../assets/renaissance.jpg'
 </script>
 
 <style scoped>
